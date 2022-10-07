@@ -1,0 +1,99 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.sky {
+  height: 300px;
+  background-color: skyblue;
+}
+.grass {
+  height: 300px;
+  background-color: green;
+}
+.road {
+  position: relative;
+  height: 300px;
+  background-color: dimgray;
+  border: 10px solid gray;
+}
+.lines {
+  height: 0px;
+  border: dashed #fff;
+  width: 100%;
+  position: absolute;
+  top: 150px;
+}
+
+/* Elements to Aminate */
+.mario {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  animation: drive 3s both infinite cubic-bezier(0.87, 0.13, 0.37, 0.44),
+    jump 0.5s 1.2s ease-in 2;
+  /* animation-duration: 3s;
+  animation-fill-mode: both; */
+  /* animation-delay: 3s; */
+  /* animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0.87, 0.13, 0.37, 0.44); */
+}
+
+.luigi {
+  position: absolute;
+  bottom: 15px;
+  animation-name: drive;
+  animation-duration: 5s;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+  animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.cloud {
+  position: absolute;
+}
+.cloud:nth-child(1) {
+  width: 200px;
+  top: 120px;
+  opacity: 0.5;
+  animation: wind 30s linear infinite reverse;
+}
+.cloud:nth-child(2) {
+  width: 300px;
+  top: 0;
+  animation: wind 20s ease-in infinite normal;
+}
+
+/* Keyframes */
+@keyframes drive {
+  from {
+    transform: translateX(-200px);
+  }
+  to {
+    transform: translateX(600px);
+  }
+}
+
+/* Jump Animation & chanining it to drive animation */
+@keyframes jump {
+  0% {
+    top: 20px;
+  }
+  50% {
+    top: -20px;
+  }
+  100% {
+    top: 20px;
+  }
+}
+
+/* Keyframes for clouds */
+@keyframes wind {
+  from {
+    transform: translateX(-300px);
+  }
+  to {
+    transform: translateX(650px);
+  }
+}
